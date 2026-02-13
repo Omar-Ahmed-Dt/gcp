@@ -77,10 +77,25 @@ If you want two VMs to always be running, `set the minimum and maximum number to
 Gradual update of instances in an instance group **to the new instance template**.
 - Specify **new template - Optional**: You can use a second instance template for canary deployment and specify the target number (or percentage) of VMs that will run from this template.
 - Specify **Edit type**: how you want the update to be done: When should the update happen?
-	- **Selective**: `Start the update immediately - allows you to update only specific instances or settings within a managed instance group, rather than applying changes to all instances simultaneously`
-	- **Automatic**: `refers to applying updates or changes automatically to all instances within a managed instance group. This method ensures that all instances are consistently updated without manual intervention`. 
+	- **Selective - Opportunistic**: `allows you to update only specific instances or settings within a managed instance group, rather than applying changes to all instances simultaneously - You manually trigger an update for specific instances`.
+	- **Automatic - Proactive**: `refers to applying updates or changes automatically to all instances within a managed instance group. This method ensures that all instances are consistently updated without manual intervention - You don't need to trigger updates for individual instances, the MIG controller handles everything`.
 		- **Actions allowed to update VMs**:
 			- Refresh, restart or replace
+				- Refresh:
+					- Updates instance metadata and properties without stopping the VM
+					- Changes things like instance template metadata, labels, or network tags
+					- VM keeps running—minimal disruption
+					
+				- Restart:
+					- Stops and restarts the VM to apply changes
+					- Used for updates that require a reboot (like changing machine type or certain disk configurations)
+					- Brief downtime during restart
+					
+				- Replace:
+					- Deletes the old instance and creates a new one from the updated template
+					- Most disruptive but ensures complete consistency with new template
+					- Gets a new name, internal IP (unless using static), and ephemeral disk data is lost
+					
 			- Restart or replace
 			- Refresh or restart
 			- Only refresh
