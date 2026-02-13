@@ -10,42 +10,42 @@ tags:
 
 **Types of Instance Groups**
 There are two main types:
-**1️⃣ Managed Instance Group (MIG)**
-**identical VMs created from an Instance Template**.
-types: stateless (apps don't have any state) or stateful (for Database)
-It’s a blueprint that defines:
-- Machine type (e.g., e2-medium)
-- OS image
-- Startup script
-- Disk configuration
-- Network settings
-- Metadata
-- Every VM in the group is created from this template.
-
-Managed Instance Groups provide automation and high availability features:
-- Maintain a Fixed Number of Instances
-- Self-healing
-- Health Checks
-- Auto Scaling
-- Rolling Updates
-- Canary Deployment - You deploy new version to 1 or 2 instances first, test it, If everything works → roll out to rest, If broken → rollback safely.
-
-**2️⃣ Unmanaged Instance Group**
-**Different configurations for VMs in same group**:
-- VMs can be different
-- No instance template
-- No auto scaling
-- No self-healing
-- No rolling updates
-
-Basically:  
-You are responsible for everything manually.
-
-When would you use it?
-Rare cases:
-- You need different VM types in same group
-- Custom configurations
-
+1. **Managed Instance Group (MIG)**
+	**identical VMs created from an Instance Template**.
+	types: stateless (apps don't have any state) or stateful (for Database)
+	It’s a blueprint that defines:
+	- Machine type (e.g., e2-medium)
+	- OS image
+	- Startup script
+	- Disk configuration
+	- Network settings
+	- Metadata
+	- Every VM in the group is created from this template.
+	
+	Managed Instance Groups provide automation and high availability features:
+	- Maintain a Fixed Number of Instances
+	- Self-healing
+	- Health Checks
+	- Auto Scaling
+	- Rolling Updates
+	- Canary Deployment - You deploy new version to 1 or 2 instances first, test it, If everything works → roll out to rest, If broken → rollback safely.
+	
+2. **Unmanaged Instance Group**
+	**Different configurations for VMs in same group**:
+	- VMs can be different
+	- No instance template
+	- No auto scaling
+	- No self-healing
+	- No rolling updates
+	
+	Basically:  
+	You are responsible for everything manually.
+	
+	When would you use it?
+	Rare cases:
+	- You need different VM types in same group
+	- Custom configurations
+	
 ---
 
 # Steps to Creating Managed Instance Group (MIG)

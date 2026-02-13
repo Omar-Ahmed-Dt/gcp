@@ -96,8 +96,8 @@ Type of Images:
 | You want to login to your VM instance to install software | You can SSH into it |
 | You do not want to expose a VM to internet | Do NOT assign an external IP Address |
 | You want to allow HTTP traffic to your VM | Configure Firewall Rules |
-
-[Sole-tenant nodes](https://scribehow.com/viewer/Creating_VMs_on_Dedicated_Host_with_Sole_Tenant_Nodes__DY_BNQJmRo6Pq4JwcoDSRA) 
-**VM Manager**: `From Console => Compute Engine => Vm Manager => Patch`
+Note:
+- [Sole-tenant nodes](https://scribehow.com/viewer/Creating_VMs_on_Dedicated_Host_with_Sole_Tenant_Nodes__DY_BNQJmRo6Pq4JwcoDSRA) 
+- **VM Manager**: `From Console => Compute Engine => Vm Manager => Patch`
 
 ---
